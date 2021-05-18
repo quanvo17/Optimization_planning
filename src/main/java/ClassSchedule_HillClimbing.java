@@ -27,7 +27,7 @@ public class ClassSchedule_HillClimbing {
     ConstraintSystem CS;
 
     private void stateModel() {
-        input("data/data50-7.txt");
+        input("data/.txt");
         mgr = new LocalSearchManager();
         x = new VarIntLS[N][U][K][M];
         val = new VarIntLS[N * U * K][M];
@@ -180,6 +180,7 @@ public class ClassSchedule_HillClimbing {
         final long duration = System.currentTimeMillis() - startTime;
         long minutes = (duration / 1000) / 60;
         long seconds  = (duration / 1000) % 60;
+        System.out.println(duration);
         System.out.println("\n" + minutes + "phút " + seconds + "s");
     }
 }

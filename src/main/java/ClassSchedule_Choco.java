@@ -166,6 +166,7 @@ public class ClassSchedule_Choco {
         final long duration = System.currentTimeMillis() - startTime;
         long minutes = (duration / 1000) / 60;
         long seconds  = (duration / 1000) % 60;
+        System.out.println(duration);
         System.out.println("\n" + minutes + "phút " + seconds + "s");
     }
 }
