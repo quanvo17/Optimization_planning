@@ -27,7 +27,7 @@ public class ClassSchedule_HillClimbing {
     ConstraintSystem CS;
 
     private void stateModel() {
-        input("data/data.txt");
+        input("data/data40.txt");
         mgr = new LocalSearchManager();
         x = new VarIntLS[N][U][K][M];
         val = new VarIntLS[N * U * K][M];
@@ -127,7 +127,7 @@ public class ClassSchedule_HillClimbing {
                 for (int k = 0; k < K; k++) {
                     for (int j = 0; j < M; j++) {
                         if (x[i][u][k][j].getValue() == 1) {
-                            System.out.print((u+2) + "-" + (k+1) + "-" + (j+1) + ", ");
+                            System.out.print((u+2) + "-" + (k+1) + "-" + (j+ 1)+ ", ");
                         }
                     }
                 }
@@ -174,7 +174,12 @@ public class ClassSchedule_HillClimbing {
     }
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         ClassSchedule_HillClimbing app = new ClassSchedule_HillClimbing();
         app.solve();
+        final long duration = System.currentTimeMillis() - startTime;
+        long minutes = (duration / 1000) / 60;
+        long seconds  = (duration / 1000) % 60;
+        System.out.println("\n" + minutes + "phút " + seconds + "s");
     }
 }
