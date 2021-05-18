@@ -18,7 +18,7 @@ public class ClassSchedule_Choco {
     IntVar [][][][] x = null;
 
     public void build_model() {
-        input("./data/data30.txt");
+        input("./data/data.txt");
         model = new Model();
 
         x = new IntVar[N][U][K][M];
@@ -110,35 +110,20 @@ public class ClassSchedule_Choco {
         }
 
         // print solution:
-        String[][] scheduler =  new String[U+1][K+1];
-        for (int i = 0; i < U; i++) {
-            for (int j = 0; j < K; j++) {
-                scheduler[i][j] = "";
-            }
-        }
-
+        System.out.println("lop: thu-tiet-phong");
         for (int i = 0; i < N; i++) {
-//            System.out.print("lop " + (i+1) + " : ");
+            System.out.println();
+            System.out.print("lop " + (i+1) + " : ");
             for (int u = 0; u < U; u++) {
                 for (int k = 0; k < K; k++) {
                     for (int j = 0; j < M; j++) {
                         if (x[i][u][k][j].getValue() == 1) {
-                            scheduler[u][k] = scheduler[u][k].join(" | ",Integer.toString(i+1) + "-" + Integer.toString(j+1)) ;
-//                            System.out.print((u+2) + "-" + (k+1) + "-" + (j+1) + ", ");
+                            System.out.print((u+2) + "-" + (k+1) + "-" + (j+1) + ", ");
                         }
                     }
                 }
             }
         }
-
-        for (int i = 0; i < U; i++) {
-            System.out.print("Thứ " + Integer.toString(i+2)+ ": ");
-            for (int j = 0; j < K; j++) {
-                System.out.print(scheduler[i][j] + ",");
-            }
-            System.out.print("\n");
-        }
-
     }
 
     private void input(String file_name){
@@ -175,12 +160,7 @@ public class ClassSchedule_Choco {
     }
 
     public static void main(String[] args) {
-        final long startTime = System.currentTimeMillis();
         ClassSchedule_Choco app = new ClassSchedule_Choco();
         app.build_model();
-        final long duration = System.currentTimeMillis() - startTime;
-        long minutes = (duration / 1000) / 60;
-        long seconds  = (duration / 1000) % 60;
-        System.out.println("\n" + minutes + "phút " + seconds + "s");
     }
 }
