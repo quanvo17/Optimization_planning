@@ -18,7 +18,7 @@ public class ClassSchedule_Choco {
     IntVar [][][][] x = null;
 
     public void build_model() {
-        input("./data/data.txt");
+        input("./data/data50-4.txt");
         model = new Model();
 
         x = new IntVar[N][U][K][M];
@@ -160,7 +160,12 @@ public class ClassSchedule_Choco {
     }
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         ClassSchedule_Choco app = new ClassSchedule_Choco();
         app.build_model();
+        final long duration = System.currentTimeMillis() - startTime;
+        long minutes = (duration / 1000) / 60;
+        long seconds  = (duration / 1000) % 60;
+        System.out.println("\n" + minutes + "phút " + seconds + "s");
     }
 }
