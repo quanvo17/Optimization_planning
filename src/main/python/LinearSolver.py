@@ -97,7 +97,7 @@ def main():
                     for i in range(N):
                         if(x[i*U*K*M+u*K*M+k*M+j].solution_value() == 1):
                             # print('Time {0} - Room {1} - Class {2}'.format(k+1,j+1,i+1))
-                            day += '[{0}, {1}]'.format(j+1,i+1)
+                            day += '[Phong {0}, Lop {1}, GV {2}]'.format(j+1,i+1,g[i])
                     arr[k][u] = day
             # print()
         timetable = pd.DataFrame(arr)
@@ -154,3 +154,16 @@ if __name__ == '__main__':
         print(round(run_time), 's')
     else:
         print(strftime("%H:%M:%S", gmtime(run_time)))
+
+# timetable = pd.read_csv('/timetable.csv')
+# timetable.reset_index(inplace=True)
+# timetable['index'] += 1
+# timetable.rename({'index':'Tiet'}, axis=1, inplace=True)
+# timetable['Thu 2'] = timetable['0']
+# timetable['Thu 3'] = timetable['1']
+# timetable['Thu 4'] = timetable['2']
+# timetable['Thu 5'] = timetable['3']
+# timetable['Thu 6'] = timetable['4']
+# timetable.drop(columns={'0','1','2','3','4'}, inplace=True)
+# timetable.fillna(0, inplace=True)
+# print(timetable)

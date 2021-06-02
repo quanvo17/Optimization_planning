@@ -124,6 +124,8 @@ public class ClassSchedule_Choco {
                 }
             }
         }
+
+
     }
 
     private void input(String file_name){
@@ -149,18 +151,19 @@ public class ClassSchedule_Choco {
                 c[i] = scanner.nextInt();
             }
 
-            /*b = new int[U*K];
-            for (int i = 0; i < U*K; i++) {
-                b[i] = 1;
-            }*/
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         ClassSchedule_Choco app = new ClassSchedule_Choco();
         app.build_model();
+        final long duration = System.currentTimeMillis() - startTime;
+        long minutes = (duration / 1000) / 60;
+        long seconds  = (duration / 1000) % 60;
+        System.out.println(duration);
+        System.out.println("\n" + minutes + "phút " + seconds + "s");
     }
 }

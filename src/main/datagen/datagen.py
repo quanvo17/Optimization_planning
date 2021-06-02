@@ -28,4 +28,4 @@ def dataGen(name='test.txt', N=10, M=2, U=5, K=12, T=[2,4], G=10, S=[25,40], C=[
     sys.stdout = original_stdout
 
 
-dataGen(name='data20.txt', N=20, M=3, G=4)
+dataGen(name='data30.txt', N=30, M=5, G=5)
