@@ -76,15 +76,15 @@ def main():
     status = solver.Solve()
 
     if status == pywraplp.Solver.OPTIMAL:
-        # print('\nSolution:')
-        # for i in range(N):
-        #     print('lop', i+1, ': ', end='')
-        #     for u in range(U):
-        #         for k in range(K):
-        #             for j in range(M):
-        #                 if(x[i*U*K*M+u*K*M+k*M+j].solution_value() == 1):
-        #                     print(u+2,k+1,j+1,end=' | ')
-        #     print()
+        print('\nSolution:')
+        for i in range(N):
+            print('lop', i+1, ': ', end='')
+            for u in range(U):
+                for k in range(K):
+                    for j in range(M):
+                        if(x[i*U*K*M+u*K*M+k*M+j].solution_value() == 1):
+                            print(u+2,k+1,j+1,end=' | ')
+            print()
 
         # Timetable
         # print('\n--TIMETABLE--')
@@ -141,9 +141,9 @@ def read_data(name='data.txt'):
 
 if __name__ == '__main__':
     start = time.time()
-    data_dir = '/home/luong/Documents/hust/toi-uu-lap-ke-hoach/project/Optimization_planning/data/'
+    data_dir = '../../../data/'
     
-    read_data(data_dir + 'data40-9-10.txt')
+    read_data(data_dir + 'data30.txt')
     
     main()
     end = time.time()
